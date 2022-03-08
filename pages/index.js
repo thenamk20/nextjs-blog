@@ -1,7 +1,7 @@
 import Head from 'next/head'
 import Link from 'next/link'
 import Layout, { siteTitle } from '../components/layout'
-import utilStyles from '../styles/utils.module.css'
+// import utilStyles from '../styles/utils.module.css'
 import Date from '../components/date'
 
 import { getSortedPostsData } from '../lib/posts'
@@ -23,7 +23,16 @@ export default function Home({ allPostsData }) {
         <meta name="google" content="nositelinkssearchbox" key="sitelinks" />
         <meta name="google" content="notranslate" key="notranslate" />
       </Head>
-      <section className={utilStyles.headingMd}>
+
+      <blockquote className='text-2xl font-semibold italic text-center text-slate-900'>
+        When you look
+        <span class="before:block before:absolute before:-inset-1 before:-skew-y-3 before:bg-pink-500 relative inline-block">
+          <span class="relative text-white"> annoyed </span>
+        </span>
+        all the time, people think that you're busy.
+      </blockquote>
+
+      <section className="">
         <p>[Your Self Introduction]</p>
         <p>
           (This is a sample website - you’ll be building a site like this on{' '}
@@ -31,16 +40,16 @@ export default function Home({ allPostsData }) {
         </p>
       </section>
 
-      <section className={`${utilStyles.headingMd} ${utilStyles.padding1px}`}>
-        <h2 className={utilStyles.headingLg}>Blog</h2>
-        <ul className={utilStyles.list}>
+      <section>
+        <h2>Blog</h2>
+        <ul>
           {allPostsData.map(({ id, date, title }) => (
-            <li className={utilStyles.listItem} key={id}>
+            <li key={id}>
               <Link href={`/posts/${id}`}>
                 <a>{title}</a>
               </Link>
               <br />
-              <small className={utilStyles.lightText}>
+              <small >
                 <Date dateString={date} />
               </small>
             </li>

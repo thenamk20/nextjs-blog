@@ -10,6 +10,7 @@ export async function getStaticPaths() {
     const res = await fetch('https://jsonplaceholder.typicode.com/posts')
     const posts = await res.json()
 
+    // paths: mang cac doi tuong co key la params
     const paths = posts.map((post) => ({
         params: { id: post.id.toString() },
     }))
@@ -27,7 +28,5 @@ export async function getStaticProps({ params }) {
     // Pass post data to the page via props
     return { props: { post } }
 }
-
-
 
 export default Blog
